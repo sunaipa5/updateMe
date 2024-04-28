@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-//go:embed icon.png
+//go:embed icon.ico
 var icon embed.FS
 
 type Link struct {
@@ -58,8 +58,10 @@ func openBrowser(data string) {
 }
 
 func start() {
-	trayIcon, _ := icon.ReadFile("icon.png")
+	trayIcon, _ := icon.ReadFile("icon.ico")
 	systray.SetIcon(trayIcon)
+	systray.SetTitle("UpdateMe")
+	systray.SetTooltip("UpdateMe")
 	runMenu()
 }
 
@@ -70,7 +72,7 @@ func restart() {
 }
 
 func runMenu() {
-	systray.AddMenuItem("UpdateMe","").Disable()
+	systray.AddMenuItem("UpdateMe", "").Disable()
 	systray.AddSeparator()
 
 	for _, link := range links {
