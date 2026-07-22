@@ -1,0 +1,13 @@
+version: 2
+updates:
+  # Go (go.mod)
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "monthly" # "daily", "weekly" or "monthly"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
