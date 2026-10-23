@@ -24,6 +24,9 @@ tasks:
       - git tag -a {{.VERSION}} -m "{{.VERSION}}"
       - git push origin {{.VERSION}}
     silent: true
+  update-deps:
+    cmd: go get -u ./...
+    silent: true
   build:
     cmds:
       - go build -ldflags="-s -w -X main.version=dev" -trimpath
