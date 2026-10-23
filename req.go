@@ -4,16 +4,15 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/RomainMichau/cloudscraper_go/cloudscraper"
+	"github.com/sunaipa5/cloudscraper_go/cloudscraper"
 )
 
 func request() []Link {
-	client, _ := cloudscraper.Init(false, false)
+	client, _ := cloudscraper.Init(false)
 	res, err := client.Get("https://eksisozluk.com", make(map[string]string), "")
 	if err != nil {
 		panic(err)
 	}
-
 	return scraper(res.Body)
 }
 
