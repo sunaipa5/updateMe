@@ -6,12 +6,11 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
-      time: "09:00"
-
-  # GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
+      time: "08:00"
+    allow:
+      - dependency-type: "all"
+    open-pull-requests-limit: 10
+    groups:
+      go-dependencies:
+        patterns:
+          - "*"
