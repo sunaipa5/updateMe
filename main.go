@@ -20,7 +20,6 @@ var links []Link
 
 func main() {
 	links = request()
-
 	systray.Run(start, nil)
 }
 
@@ -37,7 +36,6 @@ func openBrowser(data string) {
 }
 
 func start() {
-	//Select tray icon based on OS type
 	var trayIcon []byte
 	switch runtime.GOOS {
 	case "linux", "darwin":
@@ -49,6 +47,7 @@ func start() {
 	systray.SetIcon(trayIcon)
 	systray.SetTitle("UpdateMe")
 	systray.SetTooltip("UpdateMe")
+
 	runMenu()
 }
 
@@ -62,26 +61,31 @@ func runMenu() {
 	systray.AddMenuItem("UpdateMe", "").Disable()
 	systray.AddSeparator()
 
-	//Link items
+	// Link items
 	for _, link := range links {
 		menuItem := systray.AddMenuItem(link.Name, link.URL)
 		go func(url string) {
-			<-menuItem.ClickedCh
-			openBrowser(url)
+			for range menuItem.ClickedCh {
+				openBrowser(url)
+			}
 		}(link.URL)
 	}
 
 	systray.AddSeparator()
 
-	//Refresh Item
+	// Refresh Item
 	refresh := systray.AddMenuItem("Refresh", "Refresh")
 	go func() {
-		<-refresh.ClickedCh
-		restart()
+		for range refresh.ClickedCh {
+			restart()
+			return
+		}
 	}()
 
-	//Quit Item
+	// Quit Item
 	quit := systray.AddMenuItem("Quit", "Quit")
-	<-quit.ClickedCh
-	systray.Quit()
+	go func() {
+		<-quit.ClickedCh
+		systray.Quit()
+	}()
 }
