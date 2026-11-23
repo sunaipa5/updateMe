@@ -4,7 +4,7 @@ go 1.27.3
 
 require (
 	fyne.io/systray v1.12.2
-	github.com/PuerkitoBio/goquery v1.13.0
+	github.com/PuerkitoBio/goquery v1.14.0
 	github.com/sunaipa5/cloudscraper_go v0.5.2
 )
 
@@ -21,7 +21,7 @@ require (
 	github.com/google/gopacket v1.1.19 // indirect
 	github.com/google/pprof v0.0.0-20261026192309-dbd0ed30aa88 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect
-	github.com/klauspost/compress v1.20.4 // indirect
+	github.com/klauspost/compress v1.20.5 // indirect
 	github.com/onsi/ginkgo/v2 v2.34.0 // indirect
 	github.com/quic-go/qpack v0.6.0 // indirect
 	github.com/quic-go/quic-go v0.65.0 // indirect
@@ -31,10 +31,10 @@ require (
 	golang.org/x/crypto v0.59.0 // indirect
 	golang.org/x/exp v0.0.0-20261014143641-f0251eb4aa3e // indirect
 	golang.org/x/mod v0.43.0 // indirect
-	golang.org/x/net v0.62.0 // indirect
+	golang.org/x/net v0.63.0 // indirect
 	golang.org/x/sync v0.25.0 // indirect
 	golang.org/x/sys v0.50.0 // indirect
 	golang.org/x/text v0.44.0 // indirect
-	golang.org/x/tools v0.52.0 // indirect
+	golang.org/x/tools v0.53.0 // indirect
 	h12.io/socks v1.0.3 // indirect
 )
